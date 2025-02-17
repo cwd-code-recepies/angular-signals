@@ -3,11 +3,14 @@ import { interval, map, take } from 'rxjs';
 import { toSignal } from '@angular/core/rxjs-interop';
 
 @Component({
-  selector: 'app-countdown',
+  selector: 'app-countdown-page',
   standalone: true,
-  template: `<h2>{{ launchCountdownDisplay() }}</h2>`
+  template: `
+    <h1>Countdown Demo</h1>
+    <h2>{{ launchCountdownDisplay() }}</h2>
+  `
 })
-export class CountdownComponent {
+export class CountdownPage {
   readonly #COUNTDOWN_START = 10;
   readonly #COUNTDOWN_INTERVAL = 500;
 

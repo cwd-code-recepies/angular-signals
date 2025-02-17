@@ -1,14 +1,16 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { CountdownComponent } from './features/countdown/countdown.component';
+import { RouterLink, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, CountdownComponent],
+  imports: [RouterOutlet, RouterLink],
   template: `
     <h1>Angular Signals Demo</h1>
-    <app-countdown></app-countdown>
+    <nav>
+      <a routerLink="/">Home</a> |
+      <a routerLink="/countdown">Countdown</a>
+    </nav>
     <router-outlet></router-outlet>
   `
 })

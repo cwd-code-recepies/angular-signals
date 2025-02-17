@@ -1,5 +1,7 @@
-import { Component, effect, EffectCleanupRegisterFn, signal } from '@angular/core';
+import { Component, computed, effect } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { interval, map, take, tap } from 'rxjs';
+import { toSignal } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-root',
@@ -8,29 +10,26 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  title = signal('angular-signals');
-  #countdown = signal(0);
+  readonly #COUNTDOWN_START = 10;
+  readonly #COUNTDOWN_INTERVAL = 500;
 
-  #titleEffect = effect(() => {
-    if (this.#countdown() === 10) {
-      this.title.set("Blast off 🚀🚀🚀");
-      return;
-    }
-    this.title.set("Countdown: " + this.#countdown());
-  });
+  #countdown = toSignal(
+    interval(this.#COUNTDOWN_INTERVAL).pipe(
+      map(i => this.#COUNTDOWN_START - i),
+      take(this.#COUNTDOWN_START + 1),
+    ),
+    { initialValue: this.#COUNTDOWN_START }
+  );
 
-  #countdownEffect = effect((onCleanup: EffectCleanupRegisterFn) => {
-    const timers: any[] = [];
-    for (let i = 0; i <= 10; i++) {
-      const timer = setTimeout(() => {
-        this.#countdown.set(i);
-      }, 100 * i)
+  launchCountdownDisplay = computed(() => 
+    this.#countdown() === 0 
+      ? "Blast off 🚀🚀🚀" 
+      : `Countdown: ${this.#countdown()}`
+  );
 
-      timers.push(timer);
-    }
-
-    onCleanup(() => {
-      timers.forEach(clearTimeout);
-    })
-  });
+  constructor() {
+    effect(() => {
+      console.log('Launch Status:', this.launchCountdownDisplay());
+    });
+  }
 }

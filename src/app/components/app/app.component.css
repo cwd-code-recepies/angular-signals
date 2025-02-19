@@ -1,0 +1,16 @@
+nav {
+  margin: 1rem 0;
+}
+
+a {
+  margin: 0 0.5rem;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h1 {
+  margin-bottom: 1rem;
+}

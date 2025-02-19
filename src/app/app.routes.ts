@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { HomePage } from './features/home/home.page';
+import { HomePage } from './pages/home/home.page';
 
 export const routes: Routes = [
   { 
@@ -8,6 +8,6 @@ export const routes: Routes = [
   },
   { 
     path: 'countdown',
-    loadComponent: () => import('./features/countdown/countdown.page').then(m => m.CountdownPage)
+    loadComponent: () => import('./pages/countdown/countdown.page').then(m => m.CountdownPage)
   }
 ];

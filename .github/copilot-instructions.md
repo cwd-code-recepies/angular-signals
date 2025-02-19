@@ -2,6 +2,7 @@
 - Prefer standalone components over NgModules where possible
 - Use bootstrapApplication instead of NgModule bootstrapping
 - Leverage component-level imports for better tree-shaking
+- Use provideExperimentalZonelessChangeDetection() provider always. Do not remove this!
 
 
 2. Embrace Signals
@@ -21,7 +22,7 @@
 - Use inject() function instead of constructor injection
 
 5. Application Architecture
-- Follow feature-based folder structure
+- Modern Angular Standalone-First Structure Tutorial
 - Implement smart/presentational component pattern
 - Use TypeScript strict mode
 - Maintain consistent naming conventions

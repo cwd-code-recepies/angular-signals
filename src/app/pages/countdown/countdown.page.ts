@@ -5,8 +5,7 @@ import { toSignal } from '@angular/core/rxjs-interop';
 @Component({
   selector: 'app-countdown-page',
   standalone: true,
-  templateUrl: './countdown.page.html',
-  styleUrls: ['./countdown.page.css']
+  templateUrl: './countdown.page.html'
 })
 export class CountdownPage {
   readonly #COUNTDOWN_START = 10;

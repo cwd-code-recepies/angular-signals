@@ -31,6 +31,7 @@
   * `.html` for templates
   * `.css` for styles
 - Avoid inline templates and styles
+- Prefere Tailwind over writing custom css!
 
 6. API Communication
 - Use HttpClient with typed responses

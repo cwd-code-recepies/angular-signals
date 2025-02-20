@@ -9,5 +9,9 @@ export const routes: Routes = [
   { 
     path: 'countdown',
     loadComponent: () => import('./pages/countdown/countdown.page').then(m => m.CountdownPage)
+  },
+  { 
+    path: 'http-example',
+    loadComponent: () => import('../app/pages/http-example/http-example.page').then(m => m.HttpExamplePage)
   }
 ];

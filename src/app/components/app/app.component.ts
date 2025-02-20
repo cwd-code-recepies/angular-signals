@@ -7,8 +7,7 @@ import { NavComponent } from '../nav/nav.component';
   standalone: true,
   imports: [RouterOutlet, NavComponent],
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Angular Signals Demo';
+  title = 'Angular Signals';
 }

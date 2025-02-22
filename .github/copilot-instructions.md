@@ -2,7 +2,6 @@
 - Prefer standalone components over NgModules where possible
 - Use bootstrapApplication instead of NgModule bootstrapping
 - Leverage component-level imports for better tree-shaking
-- Use provideExperimentalZonelessChangeDetection() provider always. Do not remove this!
 
 
 2. Embrace Signals
@@ -11,7 +10,6 @@
 - Use `toSignal()` and `toObservable()` for interop with RxJS when needed
 
 3. Performance Optimization
-- Implement OnPush change detection strategy
 - Use built-in control flow syntax (`@if`, `@for`, `@switch`) instead of structural directives
 - Leverage pure pipes for data transformations
 - Use `trackBy` with `@for` loops
